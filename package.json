@@ -1,0 +1,26 @@
+{
+  "name": "moddtech-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --inspect src/index.js",
+    "migrate": "knex migrate:latest --knexfile ./db/knexfile.js --migrations-directory ./migrations",
+    "rollback": "knex migrate:rollback --knexfile ./db/knexfile.js --migrations-directory ./migrations"
+  },
+  "author": "borquez",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "knex": "^2.1.0",
+    "knex-postgis": "^0.14.3",
+    "morgan": "^1.10.0",
+    "objection": "^3.0.1",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
