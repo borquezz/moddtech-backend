@@ -1,5 +1,5 @@
 const path = require("path");
-require("dotenv/config");
+require("dotenv").config({ path: "../.env" });
 const { knexSnakeCaseMappers } = require("objection");
 
 // Update with your config settings.
@@ -19,6 +19,9 @@ module.exports = {
     migrations: {
       tableName: "knex_migrations",
       directory: path.join(__dirname, "/migrations"),
+    },
+    seeds: {
+      directory: path.join(__dirname, "/seeds"),
     },
     ...knexSnakeCaseMappers({ underscoreBetweenUppercaseLetters: true }),
   },

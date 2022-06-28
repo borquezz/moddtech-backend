@@ -2,7 +2,7 @@ require("dotenv/config");
 const morgan = require("morgan");
 const express = require("express");
 const cors = require("cors");
-const corsOptions = require("./config/corsOptions");
+const corsOptions = require("./src/config/corsOptions");
 
 // app config
 const app = express();
@@ -12,13 +12,13 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 
 // Wire up knex instance with Objection
-const dbSetup = require("../db/databaseSetup");
+const dbSetup = require("./db/databaseSetup");
 dbSetup();
 
 // Route imports
-const stateRoutes = require("./routes/state");
-const cityRoutes = require("./routes/city");
-const clientRoutes = require("./routes/client");
+const stateRoutes = require("./src/routes/state");
+const cityRoutes = require("./src/routes/city");
+const clientRoutes = require("./src/routes/client");
 
 // Route definition
 app.use("/api/state", stateRoutes);
